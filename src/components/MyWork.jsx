@@ -51,7 +51,7 @@ function MyWork() {
   )
 }
 const StyledMyWork = Styled(motion.div)`
-background-color:#b7ddffc3;
+background-color:#5091cac3;
 color:#080808;
 padding:2em;
 border-radius:1em;

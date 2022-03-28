@@ -55,16 +55,17 @@ function About() {
 }
 
 const StyledAbout = Styled(motion.div)`
-    background-color:#b7ddffc3;
+    background-color:#5091cac3;
     display: flex;
-    padding:2em;
     color:#000000;
     border-radius:1em;
+    border:5px solid #C4C4C4;
+    
     li{
         font-size:1.3em;
     }
     .about-border{
-        border:5px solid #C4C4C4;
+       
         padding:1em;
         border-radius:20px;
     }

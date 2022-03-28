@@ -6,7 +6,8 @@ import {textAnimation} from './animations.js'
 import Nav from './Nav.jsx';
 import { Canvas,useFrame } from '@react-three/fiber';
 import {OrbitControls} from '@react-three/drei'
-
+import About from './About.jsx';
+import Profile from './Profile.jsx';
 
 
 const Box =(props)=>{
@@ -30,6 +31,7 @@ const Box =(props)=>{
 
 function Header() {
   return (
+    <div className="header-container">
     <StyledHeader
     variants={pageAnimation}
     exit="exit"
@@ -48,22 +50,17 @@ function Header() {
       <button>contact</button>
       </div>
     </StyledNav>
-    <div className="container">
-    <div className="canvas-container">
-    <Canvas >
-    <Box/>
-    <Box/>
-       
-        <OrbitControls/>
-        <ambientLight intensity={0.5}/>
-        
-   
 
-      
-        </Canvas>
+    <div className="container">
+    <div className="canvas-container" style={{ position: "relative", width: 300, height: 300}}>
+    <Canvas  >
+    <Box/>
+    <OrbitControls/>
+    <ambientLight intensity={0.5}/>
+    </Canvas>
     </div>
+
     <div className="text-container">
-        
         <motion.h2
         variants={textAnimation}
   
@@ -82,14 +79,17 @@ function Header() {
         </motion.h1>
         </div>
         </div>
+        <Profile/>
     </StyledHeader>
+    
+    </div>
   )
 }
 
 const StyledHeader = Styled(motion.div)`
 margin-top:1em;
 border-radius:1em;
-background-color:#b7ddffc3;
+background-color:#5091cac3;
 color:#0a0a0a;
 padding:2em;
 height:50em;
@@ -101,12 +101,13 @@ h1{
 }
 .container{
   display:flex;
+  margin-top:3em;
 }
 `
 const StyledNav = Styled.div`
 display: flex;
 justify-content:space-between;
-padding:2em;
+padding:1em;
 border-bottom:5px solid #ae00ff;
 
 span{

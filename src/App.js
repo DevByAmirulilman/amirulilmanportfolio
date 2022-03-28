@@ -8,12 +8,6 @@ import Grid from '@material-ui/core/Grid';
 
 
 
-
-
-const Model=() => {
-  
-}
-
 function App() {
  
   return (
@@ -26,7 +20,6 @@ function App() {
 
 
       <Grid xs={10} item>
-
       <About/>
       </Grid>
 
@@ -44,5 +37,7 @@ function App() {
     
   );
 }
+
+
 
 export default App;

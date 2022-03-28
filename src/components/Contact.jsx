@@ -16,7 +16,7 @@ function Contact() {
   )
 }
 const StyledContact = Styled.div`
-background-color:#b7ddffc3;
+background-color:#5091cac3;
 padding:2em;
 border-radius:1em;
 .contact{
