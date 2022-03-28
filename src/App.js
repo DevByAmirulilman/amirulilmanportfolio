@@ -3,25 +3,30 @@ import Contact from './components/Contact';
 import GlobalStyle from './components/GlobalStyle'
 import Header from './components/Header';
 import MyWork from './components/MyWork';
-import Nav from './components/Nav';
+
 import Grid from '@material-ui/core/Grid';
 
 
+
+
+
+const Model=() => {
+  
+}
+
 function App() {
+ 
   return (
-    
-    <div className="App">
+    <div>
       <Grid container justifyContent="center">
       <GlobalStyle/>
       <Grid xs={10} item>
       <Header/>
       </Grid>
 
+
       <Grid xs={10} item>
-      <Nav/>
-      </Grid>
-      
-      <Grid xs={10} item>
+
       <About/>
       </Grid>
 
@@ -34,7 +39,9 @@ function App() {
       </Grid>
       
       </Grid>
-    </div>
+      </div>
+    
+    
   );
 }
 

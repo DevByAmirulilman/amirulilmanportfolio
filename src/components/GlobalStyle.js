@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
+import background1 from './images/bg-image.jpg'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -8,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Luxurious Roman', cursive;
 }
 body{
-    background-color: #b5f4ff;
+    background-image: url(${background1});
+    
 }
 `
 export default GlobalStyle

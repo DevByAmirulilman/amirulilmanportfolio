@@ -5,14 +5,19 @@ import {pageAnimation} from './animations.js'
 import {textAnimation} from './animations.js'
 
 
+
 function About() {
   return (
+    <div>
+  
     <StyledAbout
     variants={pageAnimation}
     exit="exit"
     initial="hidden"
     animate="show"
     >
+      
+ 
         <motion.div className="about-border"
         variants={textAnimation}
         >
@@ -43,16 +48,17 @@ function About() {
             
             </div>
 
-
         </motion.div>
     </StyledAbout>
+    </div>
   )
 }
 
 const StyledAbout = Styled(motion.div)`
-    background-color:#170055;
+    background-color:#b7ddffc3;
+    display: flex;
     padding:2em;
-    color:#C4C4C4;
+    color:#000000;
     border-radius:1em;
     li{
         font-size:1.3em;

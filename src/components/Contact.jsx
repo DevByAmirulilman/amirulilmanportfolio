@@ -16,11 +16,11 @@ function Contact() {
   )
 }
 const StyledContact = Styled.div`
-background-color:#170055;
+background-color:#b7ddffc3;
 padding:2em;
 border-radius:1em;
 .contact{
-  color:#F0F4EF;
+  color:#000000;
   border:5px solid #C4C4C4;
   border-radius:20px;
   h1{
