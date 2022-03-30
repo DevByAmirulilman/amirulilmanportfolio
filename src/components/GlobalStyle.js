@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     box-sizing:border-box;
     font-family: 'Luxurious Roman', cursive;
+    overflow-x: hidden;
 }
 body{
     background-image: url(${background1});

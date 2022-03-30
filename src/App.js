@@ -1,10 +1,13 @@
+//pages
 import About from './components/About';
 import Contact from './components/Contact';
 import GlobalStyle from './components/GlobalStyle'
 import Header from './components/Header';
 import MyWork from './components/MyWork';
+import {Routes,Route} from 'react-router-dom'
 
-import Grid from '@material-ui/core/Grid';
+import Nav from './components/Nav';
+
 
 
 
@@ -12,26 +15,19 @@ function App() {
  
   return (
     <div>
-      <Grid container justifyContent="center">
+      
+      
+      
       <GlobalStyle/>
-      <Grid xs={10} item>
-      <Header/>
-      </Grid>
-
-
-      <Grid xs={10} item>
-      <About/>
-      </Grid>
-
-      <Grid xs={10} item>
-      <MyWork/>
-      </Grid>
+      <Nav/>
+      <Routes>
+      <Route path="about" element={ <About/>}/>
+      <Route  path="mywork" element={ <MyWork/> }/>
+      <Route path="contact" element={ <Contact/>}/>
+      <Route exact path="/amirulilmanportfolio" element={ <Header/> }/>
+      </Routes>
+     
       
-      <Grid xs={10}item>
-      <Contact/>
-      </Grid>
-      
-      </Grid>
       </div>
     
     

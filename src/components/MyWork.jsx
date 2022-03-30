@@ -13,13 +13,14 @@ function MyWork() {
 
    
   return (
+    <Grid container justifyContent="center" className="mywork-container">
+      <Grid item xs={10}>
     <StyledMyWork 
     variants={pageAnimation}
     exit="exit"
     initial="hidden"
     animate="show"
     >
-        <Grid container justifyContent="center" className="mywork-container">
             <Grid xs={12} item>
             <h1 className="works-header">My Work</h1>
             </Grid>
@@ -32,7 +33,7 @@ function MyWork() {
             </div>
             </Grid>
                 {mywork.filter(data => data.category===showing).map(data =>           
-                    <Grid xs={6} item className="mywork" key={uuidv4()} href={data.website} >
+                    <Grid xs={12} md={12} item className="mywork" key={uuidv4()} href={data.website} >
                     <div className="image-title">
                     <h1>{data.title}</h1>
                     <a href={data.website} target="_blank" rel="noreferrer" >
@@ -46,8 +47,10 @@ function MyWork() {
                     </div>
                     </Grid>)
                 }
-        </Grid>
+       
     </StyledMyWork>
+    </Grid>
+    </Grid>
   )
 }
 const StyledMyWork = Styled(motion.div)`
@@ -55,6 +58,8 @@ background-color:#5091cac3;
 color:#080808;
 padding:2em;
 border-radius:1em;
+margin-top:1em;
+font-size:14px;
 .works-nav{
     margin-top:2em;
     margin-bottom:2em;
@@ -62,15 +67,21 @@ border-radius:1em;
   justify-content: space-around;
   
 button{
-    padding:2em;
-    background-color:#F0F4EF;
+    padding:1em;
+    background-color:none;
     border-radius:1em;
     font-size:1em;
     font-weight:bold;
     cursor:pointer ;
 }
+button:hover{
+  background-color:black;
+  color:white;
+  transition-delay: 0.1s;
+}
 }
 .mywork{
+ 
  
 h1{
     text-align:center;
@@ -81,6 +92,7 @@ h1{
     border:5px solid #C4C4C4;
     padding:1em;
     border-radius:20px;
+    
 }
 .works-header{
 text-align: center;

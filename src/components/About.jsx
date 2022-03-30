@@ -3,13 +3,13 @@ import Styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {pageAnimation} from './animations.js'
 import {textAnimation} from './animations.js'
-
+import Grid from '@material-ui/core/Grid';
 
 
 function About() {
   return (
-    <div>
-  
+    <Grid container justifyContent="center">
+    <Grid item xs={10}>
     <StyledAbout
     variants={pageAnimation}
     exit="exit"
@@ -39,6 +39,10 @@ function About() {
                 <h2>Frameworks/Libraries</h2>
                 <li>React js</li>
                 <li>Three js</li>
+                <li>Material UI React</li>
+                <li>Redux</li>
+                <li>Framer Motion</li>
+                <li>Styled Component</li>
             </ul>
             <ul>
                 <h2>Education</h2>
@@ -50,7 +54,8 @@ function About() {
 
         </motion.div>
     </StyledAbout>
-    </div>
+    </Grid>
+    </Grid>
   )
 }
 
@@ -59,8 +64,11 @@ const StyledAbout = Styled(motion.div)`
     display: flex;
     color:#000000;
     border-radius:1em;
-    border:5px solid #C4C4C4;
-    
+    margin-top:1em;
+    font-size:14px;
+    @media (max-width:668px) {
+  font-size:0.5em;
+  }
     li{
         font-size:1.3em;
     }

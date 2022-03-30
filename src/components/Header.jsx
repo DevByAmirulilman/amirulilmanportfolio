@@ -4,24 +4,30 @@ import { motion } from 'framer-motion';
 import {pageAnimation} from './animations.js'
 import {textAnimation} from './animations.js'
 import Nav from './Nav.jsx';
-import { Canvas,useFrame } from '@react-three/fiber';
+import { Canvas,useFrame,useThree } from '@react-three/fiber';
 import {OrbitControls} from '@react-three/drei'
 import About from './About.jsx';
 import Profile from './Profile.jsx';
+import * as THREE from 'three';
+import Grid from '@material-ui/core/Grid';
+
 
 
 const Box =(props)=>{
   const mesh = useRef()
+  const knotmesh = new THREE.MeshMatcapMaterial({color:"#AE00FB"})
+  const knotGeo =new THREE.TorusKnotGeometry()
+  const { viewport } = useThree()
   useFrame((state, delta) => {(mesh.current.rotation.z += 0.05)})
     return (
       
       <mesh
       {...props}
       ref={mesh}
+      scale={(viewport.width / 5)}
+      material={knotmesh}
+      geometry={knotGeo}
       >
-        
-        <torusKnotGeometry attach="geometry" />
-        <meshMatcapMaterial attach="material" color="#AE00FB" metalness="10" />
       </mesh>
     )
   
@@ -31,35 +37,24 @@ const Box =(props)=>{
 
 function Header() {
   return (
-    <div className="header-container">
+    <Grid container justifyContent='center'>
+      <Grid item md={10} xs={12}>
     <StyledHeader
     variants={pageAnimation}
     exit="exit"
     initial="hidden"
     animate="show"
     >
-    <StyledNav>
-      <div>
-        <h1> Amirul <span>Ilman</span></h1>
-      </div>
-      <div>
-      <button>Home</button>
-      <button>About</button>
-      <button>Services</button>
-      <button>My work</button>
-      <button>contact</button>
-      </div>
-    </StyledNav>
-
+    
     <div className="container">
-    <div className="canvas-container" style={{ position: "relative", width: 300, height: 300}}>
-    <Canvas  >
+    <div className="canvas-container" style={{ position: "relative", width: 500, height: 300}}>
+    <Canvas>
     <Box/>
     <OrbitControls/>
     <ambientLight intensity={0.5}/>
     </Canvas>
     </div>
-
+    
     <div className="text-container">
         <motion.h2
         variants={textAnimation}
@@ -75,14 +70,16 @@ function Header() {
         <motion.h1
         variants={textAnimation}
         >
-        I’m a <span className="boldcolor">software engineer</span> specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building 3D Websited and react js.
+        I’m a <span className="boldcolor">Front End Developer</span> specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building 3D Web Apps using <span className="boldcolor">ReactJs</span> and <span className="boldcolor" >ThreeJs</span>
         </motion.h1>
         </div>
+        
         </div>
         <Profile/>
+        
     </StyledHeader>
-    
-    </div>
+    </Grid>
+    </Grid>
   )
 }
 
@@ -92,7 +89,11 @@ border-radius:1em;
 background-color:#5091cac3;
 color:#0a0a0a;
 padding:2em;
-height:50em;
+font-size:14px;
+@media (max-width:608px) {
+  font-size:0.4em;
+
+  }
 .boldcolor{
     color:#AE00FB;
 }
@@ -104,110 +105,5 @@ h1{
   margin-top:3em;
 }
 `
-const StyledNav = Styled.div`
-display: flex;
-justify-content:space-between;
-padding:1em;
-border-bottom:5px solid #ae00ff;
 
-span{
-  color: #ae00ff;
-}
-button{
-  position: relative;
-  padding: 1em 1.8em;
- outline: none;
- border: 1px solid #303030;
- background: #212121;
- color: #ae00ff;
- text-transform: uppercase;
- letter-spacing: 2px;
- font-size: 15px;
- overflow: hidden;
- transition: 0.2s;
- border-radius: 20px;
- cursor: pointer;
- font-weight: bold;
-}
-
-button:hover {
- box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
- transition-delay: 0.2s;
-}
-
-button span {
- position: absolute;
-}
-
-button span:nth-child(1) {
- top: 0;
- left: -100%;
- width: 100%;
- height: 2px;
- background: linear-gradient(90deg, transparent, #ae00ff);
-}
-
-button:hover span:nth-child(1) {
- left: 100%;
- transition: 0.7s;
-}
-
-button span:nth-child(3) {
- bottom: 0;
- right: -100%;
- width: 100%;
- height: 2px;
- background: linear-gradient(90deg, transparent, #001eff);
-}
-
-button:hover span:nth-child(3) {
- right: 100%;
- transition: 0.7s;
- transition-delay: 0.35s;
-}
-
-button span:nth-child(2) {
- top: -100%;
- right: 0;
- width: 2px;
- height: 100%;
- background: linear-gradient(180deg, transparent, #ae00ff);
-}
-
-button:hover span:nth-child(2) {
- top: 100%;
- transition: 0.7s;
- transition-delay: 0.17s;
-}
-
-button span:nth-child(4) {
- bottom: -100%;
- left: 0;
- width: 2px;
- height: 100%;
- background: linear-gradient(360deg, transparent, #001eff);
-}
-
-button:hover span:nth-child(4) {
- bottom: 100%;
- transition: 0.7s;
- transition-delay: 0.52s;
-}
-
-button:active {
- background: #ae00af;
- background: linear-gradient(to top right, #ae00af, #001eff);
- color: #bfbfbf;
- box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
- transition: 0.1s;
-}
-
-button:active span:nth-child(1) 
-span:nth-child(2) 
-span:nth-child(2) 
-span:nth-child(2) {
- transition: none;
- transition-delay: none;
-}
-`
 export default Header
