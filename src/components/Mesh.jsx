@@ -8,7 +8,7 @@ function Mesh(props) {
     const ref = useRef()
     const [hovered, hover] = useState(false)
     const [clicked, click] = useState(false)
-    useFrame((state, delta) => (ref.current.rotation.x += 0.01))
+    useFrame((state, delta) => (ref.current.rotation.z += 0.05))
   return (
     <mesh
       {...props}

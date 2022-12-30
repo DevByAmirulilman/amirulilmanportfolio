@@ -1,43 +1,49 @@
-import { React,useRef} from 'react'
+import { React,useRef,useLayoutEffect,useEffect } from 'react'
 import Styled from 'styled-components'
 import { motion } from 'framer-motion';
 import {pageAnimation} from './animations.js'
 import {textAnimation} from './animations.js'
-import Nav from './Nav.jsx';
-import { Canvas,useFrame,useThree } from '@react-three/fiber';
+import matcap from './matcaps/4.png'
+import { Canvas,useFrame,useThree, useLoader } from '@react-three/fiber';
 import {OrbitControls} from '@react-three/drei'
-import About from './About.jsx';
+import { useGLTF, useAnimations } from '@react-three/drei'
 import Profile from './Profile.jsx';
 import * as THREE from 'three';
 import Grid from '@material-ui/core/Grid';
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { Suspense } from "react";
+import model from './images/glTF/Fox.gltf'
+import { Card } from '@material-ui/core';
 
 
 
-const Box =(props)=>{
+const Model =(props)=>{
+  const colorMap = useLoader(TextureLoader, matcap)
   const mesh = useRef()
-  const knotmesh = new THREE.MeshMatcapMaterial({color:"#AE00FB"})
+  const knotmesh = new THREE.MeshMatcapMaterial({color:"#AE00FB",map:colorMap})
   const knotGeo =new THREE.TorusKnotGeometry()
   const { viewport } = useThree()
-  useFrame((state, delta) => {(mesh.current.rotation.z += 0.05)})
+  useFrame((state, delta) => {(mesh.current.rotation.x += 0.05)})
     return (
-      
-      <mesh
-      {...props}
-      ref={mesh}
-      scale={(viewport.width / 5)}
-      material={knotmesh}
-      geometry={knotGeo}
-      >
+      <>
+      <ambientLight intensity={0.2}  />
+      <directionalLight />
+      <mesh count={10} ref={mesh} material={knotmesh} scale={(viewport.width / 5)}>
+        <torusKnotGeometry  />
       </mesh>
+      </>
     )
-  
-
   }
 
 
+    
+    
 function Header() {
+ 
   return (
+    
     <Grid container justifyContent='center'>
+     
       <Grid item md={10} xs={12}>
     <StyledHeader
     variants={pageAnimation}
@@ -48,10 +54,11 @@ function Header() {
     
     <div className="container">
     <div className="canvas-container" style={{ position: "relative", width: 500, height: 300}}>
-    <Canvas>
-    <Box/>
+    <Canvas >
+    <Suspense fallback={null}>
+   <Model/>
     <OrbitControls/>
-    <ambientLight intensity={0.5}/>
+    </Suspense>
     </Canvas>
     </div>
     
@@ -75,8 +82,9 @@ function Header() {
         </div>
         
         </div>
-        <Profile/>
-        
+        <div className='profile' >
+        <Profile Model={Model} />
+        </div>
     </StyledHeader>
     </Grid>
     </Grid>
@@ -86,7 +94,7 @@ function Header() {
 const StyledHeader = Styled(motion.div)`
 margin-top:1em;
 border-radius:1em;
-background-color:#5091cac3;
+border:solid 1px #AE00FB;
 color:#0a0a0a;
 padding:2em;
 font-size:14px;
@@ -102,7 +110,9 @@ h1{
 }
 .container{
   display:flex;
-  margin-top:3em;
+}
+.profile{
+  margin-top:-2em;
 }
 `
 

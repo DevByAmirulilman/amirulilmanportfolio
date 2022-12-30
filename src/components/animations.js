@@ -31,6 +31,7 @@ export const textAnimation ={
       },
       exit: {
         opacity: 0,
+        x:-600,
         transition: { ease: 'easeOut', duration: 0.5 },
       },
 }

@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 import {pageAnimation} from './animations.js'
 import {textAnimation} from './animations.js'
 import {motion} from 'framer-motion'
+import { Card,CardMedia,CardContent } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
 
 function MyWork() {
     const [mywork,setMywork] = useState(allwork)
@@ -33,19 +35,29 @@ function MyWork() {
             </div>
             </Grid>
                 {mywork.filter(data => data.category===showing).map(data =>           
-                    <Grid xs={12} md={12} item className="mywork" key={uuidv4()} href={data.website} >
-                    <div className="image-title">
-                    <h1>{data.title}</h1>
-                    <a href={data.website} target="_blank" rel="noreferrer" >
-                    <img className="image" src={data.image} alt="" />
-                    </a>
-                    </div>
-                    <div className="description">
-                    <p>{data.description}</p>
-                    <p>Hosting: {data.hosting}</p>
-                    <a href={data.github}>Github Repo</a>
-                    </div>
-                    </Grid>)
+                    <Card  sx={{ maxWidth: 345}}className="mywork" key={uuidv4()} href={data.website} >
+                            <CardContent>
+                              <img src={data.image} alt={data.title} width={600}/>
+                              <Typography gutterBottom variant="h4" component="div">
+                              {data.title}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                              <span className='span'>Description</span>:{data.description}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                              <span className='span'>Website</span>:<a href={data.website} target="_blank">{data.website}</a>
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                              <span className='span'>Github</span>:{data.github}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                              <span className='span'>Library</span>:{data.category}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                              <span className='span'>Design Software Used</span>:{data.software}
+                              </Typography>
+                            </CardContent>
+                    </Card>)
                 }
        
     </StyledMyWork>
@@ -54,12 +66,15 @@ function MyWork() {
   )
 }
 const StyledMyWork = Styled(motion.div)`
-background-color:#5091cac3;
+border:solid 1px #AE00FB;
 color:#080808;
 padding:2em;
 border-radius:1em;
 margin-top:1em;
 font-size:14px;
+.span{
+  color:black;
+}
 .works-nav{
     margin-top:2em;
     margin-bottom:2em;
@@ -81,8 +96,11 @@ button:hover{
 }
 }
 .mywork{
- 
- 
+width:53%;
+margin:0 auto;
+border:1px solid black;
+margin-bottom:10em;
+
 h1{
     text-align:center;
 }

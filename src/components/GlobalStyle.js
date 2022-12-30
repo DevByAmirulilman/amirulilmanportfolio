@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
 }
 body{
-    background-image: url(${background1});
+    background-color: white;
     
 }
 `

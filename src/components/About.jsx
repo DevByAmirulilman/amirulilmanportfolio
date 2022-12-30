@@ -20,6 +20,7 @@ function About() {
  
         <motion.div className="about-border"
         variants={textAnimation}
+
         >
             <h1 className="about-header">About Me</h1>
             <h2>Hello , my Name is <span>Amirul Ilman</span>  and i take joy in building and designing softwares.
@@ -60,7 +61,7 @@ function About() {
 }
 
 const StyledAbout = Styled(motion.div)`
-    background-color:#5091cac3;
+  border:solid 1px #AE00FB;
     display: flex;
     color:#000000;
     border-radius:1em;

@@ -9,26 +9,11 @@ import { React,useRef,useEffect} from 'react'
 import { Canvas,useFrame } from '@react-three/fiber';
 import {OrbitControls} from '@react-three/drei'
 import * as THREE from 'three';
+import { Suspense } from "react";
 
-const Mesh =()=>{
-    
-    //Geometry
-    const particleGeometry = new THREE.ShapeBufferGeometry()
-    //material
-    const particleMaterial = new THREE.MeshToonMaterial({color:"#AE00FB"})
-   
-    return(
-        <>
-        <mesh
-        geometry={particleGeometry}
-        material={particleMaterial}
-        />
 
-        </>
-    )
-}
-
-function Profile() {
+function Profile(props) {
+    const {Model}= props;
   return (
     <StyledProfile>
 

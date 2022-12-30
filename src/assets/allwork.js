@@ -9,7 +9,8 @@ export const allwork =() => {
             category:'React',
             github:'https://github.com/DevByAmirulilman/React-Music-Player',
             website:'https://devbyamirulilman.github.io/React-Music-Player/',
-            hosting:"GitHub Pages"
+            hosting:"GitHub Pages",
+            software:'Figma'
         },
         {
             title:'Game Zone',
@@ -18,7 +19,8 @@ export const allwork =() => {
             category:'React',
             github:'https://github.com/DevByAmirulilman/React-Game-Website',
             website:'https://devbyamirulilman.github.io/React-Game-Website/',
-            hosting:"GitHub Pages"
+            hosting:"GitHub Pages",
+            software:'Figma'
         },
         {
             title:'Portfolio-Graphic Designer',
@@ -27,7 +29,8 @@ export const allwork =() => {
             category:'React',
             github:'https://github.com/DevByAmirulilman/Portfolio-for-Graphic-Designer',
             website:'https://amirulsyafiq.com/',
-            hosting:"Mudah Hosting"
+            hosting:"Mudah Hosting",
+            software:'Figma'
         },
         {
             title:'AlifBaTa',
@@ -36,7 +39,8 @@ export const allwork =() => {
             category:'React',
             github:'https://github.com/DevByAmirulilman/AlifBaTa',
             website:'https://devbyamirulilman.github.io/AlifBaTa/',
-            hosting:"GitHub Pages"
+            hosting:"GitHub Pages",
+            software:'Figma'
         },
         {
             title:'ToDo',
@@ -45,7 +49,8 @@ export const allwork =() => {
             category:'React',
             github:'https://github.com/DevByAmirulilman/todoreactwebsite',
             website:'https://devbyamirulilman.github.io/todoreactwebsite/',
-            hosting:"GitHub Pages"
+            hosting:"GitHub Pages",
+            software:'Figma'
         },
         /**
          * Three js
@@ -57,7 +62,8 @@ export const allwork =() => {
             category:'ThreeJs',
             github:'https://github.com/DevByAmirulilman/EnvironmentalAwarenessGame2/settings/pages',
             website:'https://devbyamirulilman.github.io/EnvironmentalAwarenessGame2/',
-            hosting:"GitHub Pages"
+            hosting:"GitHub Pages",
+            software:'Blender'
         },
         {
             title:'Haunted House',
@@ -66,7 +72,8 @@ export const allwork =() => {
             category:'ThreeJs',
             github:'https://github.com/DevByAmirulilman/hauntedhouse',
             website:'https://hauntedhouse-seven.vercel.app/',
-            hosting:"Vercel"
+            hosting:"Vercel",
+            software:'Blender'
         },
         {
             title:'Realistic Render',
@@ -75,7 +82,8 @@ export const allwork =() => {
             category:'ThreeJs',
             github:'https://github.com/DevByAmirulilman/threejs-realisticrender',
             website:'https://ee-dun.vercel.app/',
-            hosting:"Vercel"
+            hosting:"Vercel",
+            software:'Blender'
         },
         {
             title:'Particles',
@@ -84,7 +92,8 @@ export const allwork =() => {
             category:'ThreeJs',
             github:'https://github.com/DevByAmirulilman/threejs-particles',
             website:'https://threejs-particles.vercel.app/',
-            hosting:"Vercel"
+            hosting:"Vercel",
+            software:'Blender'
         },
         {
             title:'Galaxy Generator',
@@ -93,7 +102,8 @@ export const allwork =() => {
             category:'ThreeJs',
             github:'https://github.com/DevByAmirulilman/threejs-galaxygenerator',
             website:'https://threejs-galaxygenerator.vercel.app/',
-            hosting:"Vercel"
+            hosting:"Vercel",
+            software:'Blender'
         },
     ]
 }
