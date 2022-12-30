@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/amirulilmanportfolio/static/js/main.bc33044b.js",
+    "main.js": "/amirulilmanportfolio/static/js/main.b67520d5.js",
     "static/js/787.1f11dfe9.chunk.js": "/amirulilmanportfolio/static/js/787.1f11dfe9.chunk.js",
     "static/media/profile-img.png": "/amirulilmanportfolio/static/media/profile-img.99bbd0a5597a218d56d6.png",
     "static/media/threejs-fyp.png": "/amirulilmanportfolio/static/media/threejs-fyp.025a02f210434eed94fa.png",
@@ -10,14 +10,16 @@
     "static/media/threejs-particles.png": "/amirulilmanportfolio/static/media/threejs-particles.6ea97cb28044fcf60e05.png",
     "static/media/portfolio-react.png": "/amirulilmanportfolio/static/media/portfolio-react.d2b2510cc7f982e69c60.png",
     "static/media/threejs-galaxy.png": "/amirulilmanportfolio/static/media/threejs-galaxy.09615a752fa6680687c5.png",
+    "static/media/4.png": "/amirulilmanportfolio/static/media/4.51968dbf767bad017846.png",
+    "static/media/Fox.gltf": "/amirulilmanportfolio/static/media/Fox.f7a8f6da2d8114fe9f84.gltf",
     "static/media/alifbata-react.png": "/amirulilmanportfolio/static/media/alifbata-react.5c7e2e750f88904fd757.png",
     "static/media/react-music.png": "/amirulilmanportfolio/static/media/react-music.25a071d28309f77218c5.png",
     "static/media/todo-react.png": "/amirulilmanportfolio/static/media/todo-react.892bc24a1a68f94d27a0.png",
     "index.html": "/amirulilmanportfolio/index.html",
-    "main.bc33044b.js.map": "/amirulilmanportfolio/static/js/main.bc33044b.js.map",
+    "main.b67520d5.js.map": "/amirulilmanportfolio/static/js/main.b67520d5.js.map",
     "787.1f11dfe9.chunk.js.map": "/amirulilmanportfolio/static/js/787.1f11dfe9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.bc33044b.js"
+    "static/js/main.b67520d5.js"
   ]
 }
