@@ -1,93 +1,127 @@
-import React from 'react'
-import Styled from 'styled-components'
-import {motion} from 'framer-motion'
-import {pageAnimation} from './animations.js'
-import {textAnimation} from './animations.js'
-import Grid from '@material-ui/core/Grid';
-
+import React, { Suspense, useState } from 'react';
+import Styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { pageAnimation, textAnimation } from './animations.js';
+import { Typography, Box, Grid, ListItemIcon, ListItemText, ListItem, List, ListSubheader, Button } from '@mui/material';
+import { backend, educations, frontend } from '../assets/skills.js';
+import BookCase from './Models/BookCase.jsx';
+import { Canvas } from '@react-three/fiber';
 
 function About() {
+  const [showing, setShowing] = useState({ title: 'Frontend', show: frontend });
+
+  const renderSkills = () => {
+    if (Array.isArray(showing.show)) {
+      return showing.show.map((skill) => (
+        <ListItem key={skill.name} style={{ color: '#E1D7B7' }}>
+          <ListItemText primary={skill.name} />
+          {skill.details && <ListItemText style={{ color: '#E1D7B7' }} secondary={skill.details} />}
+          {skill.icon && (
+            <ListItemIcon style={{ color: '#1E2A5E' }}>
+              {React.createElement(skill.icon)}
+            </ListItemIcon>
+          )}
+        </ListItem>
+      ));
+    }
+    return <Typography>No skills available</Typography>;
+  };
+
   return (
-    <Grid container justifyContent="center">
-    <Grid item xs={10}>
     <StyledAbout
-    variants={pageAnimation}
-    exit="exit"
-    initial="hidden"
-    animate="show"
+      variants={pageAnimation}
+      exit="exit"
+      initial="hidden"
+      animate="show"
     >
-      
- 
-        <motion.div className="about-border"
-        variants={textAnimation}
+      <Grid container spacing={2}>
+        {/* Text Section */}
+        <Grid item xs={12} sm={6}>
+          <motion.div className="about-border" variants={textAnimation}>
+            <Box sx={{ textAlign: 'center', p: 2, color: '#1E2A5E' }}>
+              <Typography variant="h3" sx={{ color: '#ae00ff', fontFamily: 'Protest Guerrilla', fontSize: { xs: '1.8rem', sm: '2.2rem' } }}>
+                About Me
+              </Typography>
+              <Typography variant="h6" align="left" sx={{ fontFamily: 'Sofadi One', fontSize: { xs: '1rem', sm: '1.2rem' }, mt: 2 }}>
+                I’m a passionate <span style={{ color:'#ae00ff', fontFamily: 'Protest Guerrilla' }}>software developer</span> who takes joy in building and designing innovative solutions. In my personal
+                time, I enjoy developing web applications using <span style={{ color: '#ae00ff', fontFamily: 'Protest Guerrilla' }}>JavaScript</span> mainly using <span style={{ color: '#ae00ff', fontFamily: 'Protest Guerrilla' }}>React.js</span> for Front End and <span style={{ color: '#ae00ff', fontFamily: 'Protest Guerrilla' }}>Node.js/Express.js</span> for Back End, and creating immersive 3D websites with <span style={{ color: '#ae00ff', fontFamily: 'Protest Guerrilla' }}>THREE.js</span>. As a
+                full-stack developer, I work across a range of technologies, from front-end frameworks to back-end systems.
+              </Typography>
+            </Box>
 
-        >
-            <h1 className="about-header">About Me</h1>
-            <h2>Hello , my Name is <span>Amirul Ilman</span>  and i take joy in building and designing softwares.
-            On my personal time i like to build web apps using <span>React js</span> and 3d websites using <span>THREE js</span>.</h2>
-            <h2>Here are a few technologies I’ve been working with recently:</h2>
+            {/* Buttons to toggle content */}
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+              <Button
+                sx={showing.title === 'Frontend' ? { color: '#ae00ff', fontFamily: 'Protest Guerrilla' } : { color: '#1E2A5E', fontFamily: 'Sofadi One' }}
+                onClick={() => setShowing({ title: 'Frontend', show: frontend })}
+              >
+                Frontend
+              </Button>
+              <Button
+                sx={showing.title === 'Backend' ? { color: '#ae00ff', fontFamily: 'Protest Guerrilla' } : { color: '#1E2A5E', fontFamily: 'Sofadi One' }}
+                onClick={() => setShowing({ title: 'Backend', show: backend })}
+              >
+                Backend
+              </Button>
+              <Button
+                sx={showing.title === 'Education' ? { color: '#ae00ff', fontFamily: 'Protest Guerrilla' } : { color: '#1E2A5E', fontFamily: 'Sofadi One' }}
+                onClick={() => setShowing({ title: 'Education', show: educations })}
+              >
+                Education
+              </Button>
+            </Box>
 
-            <div className="skills">
-            <ul>
-                <h2>Languages</h2>
-                <li>Html</li>
-                <li>Css</li>
-                <li>Javascript</li>
-                <li>Phyton</li>
-                <li>Java</li>
-            </ul>
-            <ul>
-                <h2>Frameworks/Libraries</h2>
-                <li>React js</li>
-                <li>Three js</li>
-                <li>Material UI React</li>
-                <li>Redux</li>
-                <li>Framer Motion</li>
-                <li>Styled Component</li>
-            </ul>
-            <ul>
-                <h2>Education</h2>
-                <li>Diploma in Computer Science UITM Machang</li>
-                <li>Degree in Computer Science UITM Shah Alam</li>
-            </ul>
-            
-            </div>
+            {/* Skills Section */}
+            <Box sx={{ width: '100%', m: '0 auto', p: 2 }}>
+              <List dense={false}>
+                <ListSubheader style={{ backgroundColor: '#1E2A5E', color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>{showing.title}</ListSubheader>
+                {renderSkills()}
+              </List>
+            </Box>
+          </motion.div>
+        </Grid>
 
-        </motion.div>
+        {/* 3D Canvas Section */}
+        <Grid item xs={12} sm={6}>
+          <Box sx={{ width: '100%', height: { xs: 300, sm: 400 }, mt: { xs: 0, sm: 0 } }}>
+            <Canvas>
+              <Suspense fallback={null}>
+                <BookCase />
+              </Suspense>
+            </Canvas>
+          </Box>
+        </Grid>
+      </Grid>
     </StyledAbout>
-    </Grid>
-    </Grid>
-  )
+  );
 }
 
 const StyledAbout = Styled(motion.div)`
-  border:solid 1px #AE00FB;
-    display: flex;
-    color:#000000;
-    border-radius:1em;
-    margin-top:1em;
-    font-size:14px;
-    @media (max-width:668px) {
-  font-size:0.5em;
+  width: 80%;
+  margin: 0 auto;
+  border: solid 1px #AE00FB;
+  display: flex;
+  color: #000000;
+  border-radius: 1em;
+  margin-top: 1em;
+  font-size: 14px;
+
+  @media (max-width: 668px) {
+    font-size: 0.5em;
   }
-    li{
-        font-size:1.3em;
-    }
-    .about-border{
-       
-        padding:1em;
-        border-radius:20px;
-    }
-    .about-header{
-        text-align:center;
-    }
-    span{
-        color:#AE00FB;
-    }
-    .skills{
-        margin-top:1em;
-        display:flex;
-        justify-content:space-around;
-    }
-`
-export default About
+
+  li {
+    font-size: 1.3em;
+  }
+
+  .about-border {
+    padding: 1em;
+    border-radius: 20px;
+  }
+
+  span {
+    color: #AE00FB;
+  }
+`;
+
+export default About;

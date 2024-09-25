@@ -1,54 +1,104 @@
-import React from 'react'
-import Styled from 'styled-components'
+import React from 'react';
+import Styled from 'styled-components';
 import { NavLink } from "react-router-dom";
-import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
-
+import { Button, Typography, Box } from '@mui/material';
 
 function Nav() {
-
   return (
     <StyledNav>
-        <div className="name">
-        <h1> Amirul <span>Ilman</span></h1>
-        </div>
-      <div className="nav">
-      <Button className="button" component={NavLink} style={{margin:'1em'}}  to="amirulilmanportfolio"  variant="contained">Home</Button>
-      <Button className="button" component={NavLink} style={{margin:'1em'}}  variant="contained"  to="about">About</Button>
-      <Button className="button" component={NavLink} style={{margin:'1em'}}  variant="contained"  to="mywork">My work</Button>
-      <Button className="button" component={NavLink} style={{margin:'1em'}}  variant="contained" to="contact"> contact</Button>
-      </div>
+      <Box className="name">
+        <Typography 
+          variant='h3' 
+          sx={{ 
+            fontFamily: 'Protest Guerrilla', 
+            fontSize: { xs: '1.8rem', sm: '2.2rem' },
+            textAlign: 'center' 
+          }}>
+          Amirul <span>Ilman</span>
+        </Typography>
+      </Box>
+
+      <Box className="nav">
+        <Button 
+          className="button" 
+          component={NavLink} 
+          to="/amirulilmanportfolio" 
+          variant="contained" 
+          sx={buttonStyle}
+        >
+          Home
+        </Button>
+        <Button 
+          className="button" 
+          component={NavLink} 
+          to="/about" 
+          variant="contained" 
+          sx={buttonStyle}
+        >
+          About
+        </Button>
+        <Button 
+          className="button" 
+          component={NavLink} 
+          to="/mywork" 
+          variant="contained" 
+          sx={buttonStyle}
+        >
+          My Work
+        </Button>
+        <Button 
+          className="button" 
+          component={NavLink} 
+          to="/contact" 
+          variant="contained" 
+          sx={buttonStyle}
+        >
+          Contact
+        </Button>
+      </Box>
     </StyledNav>
-   
-  )
+  );
 }
+
+// Styles for the navigation component
+const buttonStyle = {
+  margin: '0.5em 1em',
+  fontFamily: 'Sofadi One',
+  backgroundColor: '#AE00FB',
+  '&:hover': {
+    backgroundColor: '#8B00C2',
+    borderColor: '#ae00ff',
+  }
+};
 
 const StyledNav = Styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  flex-wrap: wrap;
 
-display: flex;
-justify-content:space-around;
-flex-wrap: wrap;
-.name{
-  margin-top:1em
-}
-
-@media (max-width:668px) {
-  font-size:0.5em;
-
+  
+  .name {
+    margin: 0;
+    text-align: center;
   }
 
-span{
-  color: #ae00ff;
-}
-.button:hover{
- border:1px solid #ae00ff;
-}
 
+  span {
+    color: #ae00ff;
+  }
 
+  @media (max-width: 668px) {
+    flex-direction: column;
+    text-align: center;
 
+    .nav {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1em;
+    }
+  }
+`;
 
-
-
-
-`
-export default Nav
+export default Nav;
