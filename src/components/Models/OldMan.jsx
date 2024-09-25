@@ -10,12 +10,12 @@ const OldMan = ({showing}) => {
   // Create an animation mixer
   const mixer = React.useMemo(() => new THREE.AnimationMixer(oldManModel.scene), [oldManModel.scene]);
 
-    const { positionX, positionY, positionZ,rotation } = useControls({
-       positionX: { value: 0, min: -10, max: 10, step: 0.1 },
-       positionY: { value: 0, min: -10, max: 10, step: 0.01 },
-       positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
-       rotation: { value: 0, min: -10, max: 10, step: 0.1 },
-     });
+    // const { positionX, positionY, positionZ,rotation } = useControls({
+    //    positionX: { value: 0, min: -10, max: 10, step: 0.1 },
+    //    positionY: { value: 0, min: -10, max: 10, step: 0.01 },
+    //    positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
+    //    rotation: { value: 0, min: -10, max: 10, step: 0.1 },
+    //  });
    
      useEffect(() => {
         // Find the animation clip by name

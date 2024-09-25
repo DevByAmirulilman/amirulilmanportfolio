@@ -36,11 +36,11 @@ export default function Experience() {
   });
 
   // Leva controls for interactive model position adjustment
-  const { positionX, positionY, positionZ } = useControls({
-    positionX: { value: 0, min: -10, max: 10, step: 0.1 },
-    positionY: { value: 0, min: -10, max: 10, step: 0.01 },
-    positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
-  });
+//   const { positionX, positionY, positionZ } = useControls({
+//     positionX: { value: 0, min: -10, max: 10, step: 0.1 },
+//     positionY: { value: 0, min: -10, max: 10, step: 0.01 },
+//     positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
+//   });
 
   return (
     <Suspense fallback={null}>

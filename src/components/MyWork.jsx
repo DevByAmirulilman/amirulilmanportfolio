@@ -7,15 +7,15 @@ import OldMan from './Models/OldMan';
 import { allwork, myExp } from '../assets/allwork';
 
 const MyWork = () => {
-    const { zNumber, xNumber, yNumber, fovNumber, nearNumber, farNumber } = useControls({
-        name: 'world',
-        zNumber: 1.8,
-        xNumber: -4.7,
-        yNumber: 1.57,
-        fovNumber: 30.00,
-        nearNumber: 0.1,
-        farNumber: 2000
-    });
+    // const { zNumber, xNumber, yNumber, fovNumber, nearNumber, farNumber } = useControls({
+    //     name: 'world',
+    //     zNumber: 1.8,
+    //     xNumber: -4.7,
+    //     yNumber: 1.57,
+    //     fovNumber: 30.00,
+    //     nearNumber: 0.1,
+    //     farNumber: 2000
+    // });
 
     const [showing, setShowing] = useState({ name: 'MyWork', data: allwork });
 
