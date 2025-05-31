@@ -1,14 +1,14 @@
 // Import images statically
-import ReactMusic from '../components/images/react-music.png';
-import GameReact from '../components/images/game-react.png';
-import PortfolioReact from '../components/images/portfolio-react.png';
-import AlifBaTaReact from '../components/images/alifbata-react.png';
-import ToDoReact from '../components/images/todo-react.png';
-import ThreeJsFyp from '../components/images/threejs-fyp.png';
-import ThreeJsHauntedHouse from '../components/images/threejs-hauntedhouse.png';
-import ThreeJsRealistic from '../components/images/threejs-realistic.png';
-import ThreeJsParticles from '../components/images/threejs-particles.png';
-import ThreeJsGalaxy from '../components/images/threejs-galaxy.png';
+import ReactMusic from './images/react-music.png';
+import GameReact from './images/game-react.png';
+import PortfolioReact from './images/portfolio-react.png';
+import AlifBaTaReact from './images/alifbata-react.png';
+import ToDoReact from './images/todo-react.png';
+import ThreeJsFyp from './images/threejs-fyp.png';
+import ThreeJsHauntedHouse from './images/threejs-hauntedhouse.png';
+import ThreeJsRealistic from './images/threejs-realistic.png';
+import ThreeJsParticles from './images/threejs-particles.png';
+import ThreeJsGalaxy from './images/threejs-galaxy.png';
 
 // Array of works
 export const allwork = [

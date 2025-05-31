@@ -1,61 +1,24 @@
-//pages
-import About from './components/About';
-import Contact from './components/Contact';
-import GlobalStyle from './components/GlobalStyle'
-import Header from './components/Header';
-import MyWork from './components/MyWork';
-import {Routes,Route} from 'react-router-dom'
-import { createTheme, ThemeProvider, Typography } from '@mui/material';
-import Nav from './components/Nav';
+import React from 'react'
+import MainMenu from './Screen/MainMenu'
+import Nav from './components/Nav'
+import { Route, Routes } from 'react-router-dom'
+import About from './Screen/About'
+import Iphone from './components/Iphone'
+import MyWork from './Screen/MyWork'
+import ContactMe from './Screen/ContactMe'
 
-function App() {
-
-  const theme = createTheme({
-    typography: {
-      h1: {
-        fontSize: '2rem',
-        '@media (min-width:300px)': {
-          fontSize: '1rem',
-        },
-        '@media (min-width:600px)': {
-          fontSize: '1rem',
-        },
-        '@media (min-width:900px)': {
-          fontSize: '2rem',
-        },
-      },
-      h2: {
-        fontSize: '1.5rem',
-        '@media (min-width:300px)': {
-          fontSize: '1rem',
-        },
-        '@media (min-width:600px)': {
-          fontSize: '1rem',
-        },
-        '@media (min-width:900px)': {
-          fontSize: '2rem',
-        },
-      },
-      // Add more styles as needed
-    },
-  });
- 
+const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle/>
+    <div>
       <Nav/>
       <Routes>
-      <Route path="about" element={ <About/>}/>
-      <Route  path="mywork" element={ <MyWork/> }/>
-      <Route path="contact" element={ <Contact/>}/>
-      <Route exact path="/amirulilmanportfolio" element={ <Header/> }/>
+          <Route path='/' element={<MainMenu/>} />
+          <Route path='/About' element={<About/>} />
+          <Route path='/Mywork' element={<MyWork/>}/>
+          <Route path='/ContactMe' element={<ContactMe/>}/>
       </Routes>
-    </ThemeProvider>
-    
-    
-  );
+    </div>
+  )
 }
 
-
-
-export default App;
+export default App
