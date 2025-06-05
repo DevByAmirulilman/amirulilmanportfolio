@@ -2,29 +2,34 @@ import { FaAngular, FaCss3, FaHtml5, FaJava, FaNodeJs, FaPython, FaReact } from 
 import { FaJs } from "react-icons/fa6"
 import { SiAxios, SiDotnet, SiExpress, SiMongodb, SiPostgresql, SiStyledcomponents } from "react-icons/si"
 import { TbBrandFramerMotion, TbBrandRedux, TbBrandThreejs, TbSql } from "react-icons/tb"
-
+import { SiMui } from "react-icons/si";
 
 export const backend = 
      [
         {
             name:'Node Js',
-            icon:FaNodeJs
+            icon:FaNodeJs,
+            color:'white'
         },
         {
             name:'Express Js',
-            icon:SiExpress
+            icon:SiExpress,
+            color:'#f7df1e'
         },
         {
             name:'Postgresql',
-            icon:SiPostgresql
+            icon:SiPostgresql,
+            color:'#417ba2'
         },
         {
             name:'Dotnet',
-            icon:SiDotnet
+            icon:SiDotnet,
+            color:'#5c2992'
         },
         {
             name:'Mongo DB',
-            icon:SiMongodb
+            icon:SiMongodb,
+            color:'#538557'
         },
             
     ]
@@ -34,31 +39,43 @@ export const frontend =
     [
         {
             name:'React',
-            icon:FaReact
+            icon:FaReact,
+            color:'#7bdefd'
         },
         {
             name:'Angular',
-            icon:FaAngular
+            icon:FaAngular,
+            color:'#c30130'
         },
         {
             name:'Three JS',
-            icon:TbBrandThreejs
+            icon:TbBrandThreejs,
+            color:'white'
         },
         {
             name:'Redux',
-            icon:TbBrandRedux
+            icon:TbBrandRedux,
+            color:'#764abc'
         },
         {
             name:'Axios',
-            icon:SiAxios
+            icon:SiAxios,
+            color:'#5a29e4'
         },
         {
             name:'Framer Motion',
-            icon:TbBrandFramerMotion
+            icon:TbBrandFramerMotion,
+            color:'#805bdd'
         },
         {
             name:'Styled Components',
-            icon:SiStyledcomponents
+            icon:SiStyledcomponents,
+            color:'white'
+        },
+        {
+            name:'Material Ui',
+            icon:SiMui,
+            color:'white'
         },
 
     ]
