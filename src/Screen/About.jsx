@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { useControls } from 'leva';
-import { Card, Typography, Box, Grid, ListItemIcon, ListItemText, ListItem, List, ListSubheader, Button } from '@mui/material';
+import {
+  Card, Typography, Box, Grid, ListItemIcon, ListItemText,
+  ListItem, List, ListSubheader, Button
+} from '@mui/material';
 import BookCase from '../components/BookCase.jsx';
-import { educations,backend,frontend } from '../assets/skills.js';
+import { educations, backend, frontend } from '../assets/skills.js';
 
 const CameraController = ({ zNumber, yNumber, xNumber, fovNumber, nearNumber, farNumber }) => {
-  const { camera, set } = useThree(); // Access the camera
-
+  const { camera, set } = useThree();
   useEffect(() => {
     camera.position.set(xNumber, yNumber, zNumber);
     camera.fov = fovNumber;
     camera.near = nearNumber;
     camera.far = farNumber;
-    camera.updateProjectionMatrix(); // Update the projection matrix to apply changes
+    camera.updateProjectionMatrix();
     set({ camera });
   }, [zNumber, yNumber, xNumber, fovNumber, nearNumber, farNumber, camera]);
-
   return null;
 };
 
 const About = () => {
-  // Ensure that the initial state of showing.show is an array (languages)
   const [showing, setShowing] = useState({ title: 'Frontend', show: frontend });
-  const [view, setView] = useState('BookCase');
+  const [view] = useState('BookCase');
+
   const { zNumber, xNumber, yNumber, fovNumber, nearNumber, farNumber } = useControls({
     name: 'world',
     zNumber: 1.8,
@@ -33,17 +34,38 @@ const About = () => {
     nearNumber: 0.1,
     farNumber: 2000,
   });
-  console.log(showing)
 
-  // Check that showing.show is an array before mapping
   const renderSkills = () => {
     if (Array.isArray(showing.show)) {
       return showing.show.map((skill) => (
-        <ListItem key={skill.name} style={{color:'#E1D7B7',}} >
-          <ListItemText primary={skill.name} />
-          {skill.details && <ListItemText style={{color:'#E1D7B7'}} secondary={skill.details} />}
+        <ListItem key={skill.name} sx={{ color: '#E1D7B7' }}>
+          <ListItemText
+            primary={skill.name}
+            primaryTypographyProps={{
+              sx: {
+                fontSize: {
+                  xs: '0.75rem', // small screens
+                  sm: '0.875rem',
+                  md: '1rem',
+                  lg: '1.125rem', // large screens
+                },
+              },
+            }}
+            secondary={skill.details}
+            secondaryTypographyProps={{
+              sx: {
+                color: 'white',
+                fontSize: {
+                  xs: '0.625rem',
+                  sm: '0.75rem',
+                  md: '0.875rem',
+                  lg: '1rem',
+                },
+              },
+            }}
+          />
           {skill.icon && (
-            <ListItemIcon style={{color:'#E1D7B7'}} >
+            <ListItemIcon sx={{ color: skill.color }}>
               {React.createElement(skill.icon)}
             </ListItemIcon>
           )}
@@ -52,49 +74,97 @@ const About = () => {
     }
     return <Typography>No skills available</Typography>;
   };
+  
 
   return (
-    <Card sx={{ p: 2, margin: '0 auto', width: '80%',backgroundColor:'#55679C' }}>
-      <Grid container spacing={2} alignItems="flex-start">
+    <Card sx={{ p: 2 }} style={{width:'80%',margin:'0 auto',backgroundColor:'#141e31', border:'1px solid #f7f1e8'}}>
+      <Grid container spacing={4} direction={{ xs: 'column', md: 'row' }} alignItems="flex-start">
         {/* About Me Section */}
         <Grid item xs={12} md={6}>
-          <Box sx={{ textAlign: 'center', p: 2,color:'#1E2A5E' }}>
-            <Typography variant="h3" style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>About Me</Typography>
-            <Typography variant="h6" align="left" style={{fontFamily:'Sofadi One'}}>
-              I’m a passionate <span style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>software developer</span> who takes joy in building and designing innovative solutions. In my personal
-              time, I enjoy developing web applications using <span style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>Javascript</span> mainly using <span style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>React.js</span> for Front End and <span style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>Node Js/Express Js</span> for Back End and creating immersive 3D websites with <span style={{color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>THREE.js</span> . As a
-              full-stack developer, I work across a range of technologies, from front-end frameworks to back-end systems.
+          <Box sx={{ px: { xs: 1, md: 2 }, color: '#1E2A5E' }}>
+            <Typography
+              variant="h4"
+              sx={{
+                color: '#E1D7B7',
+                fontFamily: 'Protest Guerrilla',
+                textAlign: { xs: 'center', md: 'left' },
+              }}
+            >
+              About Me
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: 'Sofadi One',
+                mt: 2,
+                textAlign: 'justify',
+                fontSize: { xs: 14, sm: 16 },
+                color: '#f4f4f4',
+                lineHeight: 1.7,
+              }}
+            >
+              I’m a passionate <span style={{ color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>software developer</span> who takes joy in building and designing innovative solutions.
+              In my personal time, I enjoy developing web applications using <span style={{ color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>Javascript</span> mainly with <span style={{ color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>React.js</span> for Front End and <span style={{ color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>Node Js/Express Js</span> for Back End, creating immersive 3D websites with <span style={{ color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>THREE.js</span>.
             </Typography>
           </Box>
 
-          {/* Buttons to toggle content */}
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <Button style={ showing.title === 'Frontend' ? {color:'black',fontFamily:'Protest Guerrilla'}:{color:'#E1D7B7',fontFamily:'Sofadi One'}} onClick={() => setShowing({ title: 'Frontend', show: frontend })}>Frontend</Button>
-            <Button style={ showing.title === 'Backend' ? {color:'black',fontFamily:'Protest Guerrilla'}:{color:'#E1D7B7',fontFamily:'Sofadi One'}} onClick={() => setShowing({ title: 'Backend', show: backend })}>Backend</Button>
-            <Button style={ showing.title === 'Education' ? {color:'black',fontFamily:'Protest Guerrilla'}:{color:'#E1D7B7',fontFamily:'Sofadi One'}} onClick={() => setShowing({ title: 'Education', show: educations })}>Education</Button>
+          {/* Toggle Buttons */}
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: { xs: 'center', md: 'start' }, mt: 3 }}>
+            {[
+              { label: 'Frontend', value: frontend },
+              { label: 'Backend', value: backend },
+              { label: 'Education', value: educations },
+            ].map(({ label, value }) => (
+              <Button
+                key={label}
+                onClick={() => setShowing({ title: label, show: value })}
+                sx={{
+                  fontFamily: showing.title === label ? 'Protest Guerrilla' : 'Sofadi One',
+                  backgroundColor: showing.title === label ? '#E1D7B7' : 'transparent',
+                  color: showing.title === label ? '#141e31' : '#E1D7B7',
+                  border: '1px solid #E1D7B7',
+                  '&:hover': {
+                    backgroundColor: '#E1D7B7',
+                    color: '#141e31',
+                  },
+                }}
+              >
+                {label}
+              </Button>
+            ))}
           </Box>
 
-          {/* Skills Section */}
-          <Box sx={{ width: '100%', m: '0 auto', p: 2 }}>
+          {/* Skills List */}
+          <Box sx={{ mt: 3 }}>
             <List dense={false}>
-              <ListSubheader style={{backgroundColor:'#1E2A5E',color:'#E1D7B7',fontFamily:'Protest Guerrilla'}}>{showing.title}</ListSubheader>
+              <ListSubheader sx={{ backgroundColor: '#1E2A5E', color: '#E1D7B7', fontFamily: 'Protest Guerrilla' }}>
+                {showing.title}
+              </ListSubheader>
               {renderSkills()}
             </List>
           </Box>
         </Grid>
 
-        {/* 3D Canvas Section */}
+        {/* 3D Canvas */}
         <Grid item xs={12} md={6}>
-          <Box sx={{ width: '100%', height: 400,mt:10 }}>
+          <Box sx={{ width: '100%', height: { xs: 250, sm: 300, md: 400 } }}>
             <Canvas
               camera={{
                 fov: fovNumber,
                 near: nearNumber,
                 far: farNumber,
-                position: [xNumber, yNumber, zNumber], // Initial camera position
+                position: [xNumber, yNumber, zNumber],
               }}
             >
-              <CameraController zNumber={zNumber} xNumber={xNumber} yNumber={yNumber} fovNumber={fovNumber} nearNumber={nearNumber} farNumber={farNumber} />
+              <CameraController
+                zNumber={zNumber}
+                xNumber={xNumber}
+                yNumber={yNumber}
+                fovNumber={fovNumber}
+                nearNumber={nearNumber}
+                farNumber={farNumber}
+              />
               {view === 'BookCase' && <BookCase />}
             </Canvas>
           </Box>
