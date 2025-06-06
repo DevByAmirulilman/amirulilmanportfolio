@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Environment, Float, OrbitControls, PresentationControls, useGLTF,Html } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { useControls } from 'leva';
 
 const OldMan = ({showing}) => {
   
@@ -10,12 +9,6 @@ const OldMan = ({showing}) => {
   // Create an animation mixer
   const mixer = React.useMemo(() => new THREE.AnimationMixer(oldManModel.scene), [oldManModel.scene]);
 
-    const { positionX, positionY, positionZ,rotation } = useControls({
-       positionX: { value: 0, min: -10, max: 10, step: 0.1 },
-       positionY: { value: 0, min: -10, max: 10, step: 0.01 },
-       positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
-       rotation: { value: 0, min: -10, max: 10, step: 0.1 },
-     });
    
      useEffect(() => {
         // Find the animation clip by name

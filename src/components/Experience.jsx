@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Environment, OrbitControls, PresentationControls, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { useControls } from 'leva';
 
 export default function Experience() {
   const wolfModel = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/korrigan-wolf/model.gltf');
@@ -26,14 +25,6 @@ export default function Experience() {
     mixer.update(delta);
     (wolfModel.scene.rotation.y += 0.02)
   });
-
-  // Leva controls for model position
-  const { positionX, positionY, positionZ } = useControls({
-    positionX: { value: 0, min: -10, max: 10, step: 0.1 },
-    positionY: { value: 0, min: -10, max: 10, step: 0.01 },
-    positionZ: { value: 0, min: -10, max: 10, step: 0.1 },
-  });
-
   return (
     <>
       <Environment preset="forest" />

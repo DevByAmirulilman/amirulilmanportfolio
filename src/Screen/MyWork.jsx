@@ -1,22 +1,11 @@
 import { Card, Typography, Box, Button, ImageListItem, ImageListItemBar, ImageList, Grid } from '@mui/material';
 import React, { useState } from 'react';
-import { useControls } from 'leva';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import OldMan from '../components/OldMan';
 import { allwork, myExp } from '../assets/allwork';
 
 const MyWork = () => {
-    const { zNumber, xNumber, yNumber, fovNumber, nearNumber, farNumber } = useControls({
-        name: 'world',
-        zNumber: 1.8,
-        xNumber: -4.7,
-        yNumber: 1.57,
-        fovNumber: 30.00,
-        nearNumber: 0.1,
-        farNumber: 2000
-    });
-
     const [showing, setShowing] = useState({ name: 'MyWork', data: allwork });
 
     const handleClick = (website) => {
@@ -72,16 +61,16 @@ const MyWork = () => {
             <Box sx={{ width: '100%', height: 200, margin: '0 auto', p: 2 }}>
                 <Canvas
                     camera={{
-                        fov: fovNumber,
-                        near: nearNumber,
-                        far: farNumber,
-                        position: [xNumber, yNumber, zNumber],
+                        fov: 30.00,
+                        near:  0.1,
+                        far: 2000,
+                        position: [-4.7, 1.57, 1.8],
                     }}
                 >
                     <PerspectiveCamera
-                        fov={fovNumber}
-                        near={nearNumber}
-                        far={farNumber}
+                        fov={30.00}
+                        near={ 0.1}
+                        far={2000}
                     />
                     <OldMan showing={showing} />
                 </Canvas>

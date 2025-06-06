@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { useControls } from 'leva';
 import {
   Card, Typography, Box, Grid, ListItemIcon, ListItemText,
   ListItem, List, ListSubheader, Button
@@ -8,32 +7,22 @@ import {
 import BookCase from '../components/BookCase.jsx';
 import { educations, backend, frontend } from '../assets/skills.js';
 
-const CameraController = ({ zNumber, yNumber, xNumber, fovNumber, nearNumber, farNumber }) => {
+const CameraController = () => {
   const { camera, set } = useThree();
   useEffect(() => {
-    camera.position.set(xNumber, yNumber, zNumber);
-    camera.fov = fovNumber;
-    camera.near = nearNumber;
-    camera.far = farNumber;
+    camera.position.set(-4.7, 1.57, 1.8);
+    camera.fov = 30.0;
+    camera.near = 0.1;
+    camera.far = 2000;
     camera.updateProjectionMatrix();
     set({ camera });
-  }, [zNumber, yNumber, xNumber, fovNumber, nearNumber, farNumber, camera]);
+  }, [1.8, 1.57, -4.7, 30.0, 0.1, 2000, camera]);
   return null;
 };
 
 const About = () => {
   const [showing, setShowing] = useState({ title: 'Frontend', show: frontend });
   const [view] = useState('BookCase');
-
-  const { zNumber, xNumber, yNumber, fovNumber, nearNumber, farNumber } = useControls({
-    name: 'world',
-    zNumber: 1.8,
-    xNumber: -4.7,
-    yNumber: 1.57,
-    fovNumber: 30.0,
-    nearNumber: 0.1,
-    farNumber: 2000,
-  });
 
   const renderSkills = () => {
     if (Array.isArray(showing.show)) {
@@ -44,10 +33,10 @@ const About = () => {
             primaryTypographyProps={{
               sx: {
                 fontSize: {
-                  xs: '0.75rem', // small screens
+                  xs: '0.75rem',
                   sm: '0.875rem',
                   md: '1rem',
-                  lg: '1.125rem', // large screens
+                  lg: '1.125rem',
                 },
               },
             }}
@@ -65,8 +54,21 @@ const About = () => {
             }}
           />
           {skill.icon && (
-            <ListItemIcon sx={{ color: skill.color }}>
-              {React.createElement(skill.icon)}
+            <ListItemIcon>
+              {React.createElement(skill.icon, {
+                style: {
+                  color: skill.color,
+                  fontSize: '1.25rem',
+                },
+                sx: {
+                  fontSize: {
+                    xs: '1.25rem',
+                    sm: '1.5rem',
+                    md: '1.75rem',
+                    lg: '2rem',
+                  },
+                },
+              })}
             </ListItemIcon>
           )}
         </ListItem>
@@ -74,6 +76,7 @@ const About = () => {
     }
     return <Typography>No skills available</Typography>;
   };
+  
   
 
   return (
@@ -151,19 +154,19 @@ const About = () => {
           <Box sx={{ width: '100%', height: { xs: 250, sm: 300, md: 400 } }}>
             <Canvas
               camera={{
-                fov: fovNumber,
-                near: nearNumber,
-                far: farNumber,
-                position: [xNumber, yNumber, zNumber],
+                fov: 30.0,
+                near: 0.1,
+                far: 2000,
+                position: [-4.7, 1.57, 1.8],
               }}
             >
               <CameraController
-                zNumber={zNumber}
-                xNumber={xNumber}
-                yNumber={yNumber}
-                fovNumber={fovNumber}
-                nearNumber={nearNumber}
-                farNumber={farNumber}
+                zNumber={1.8}
+                xNumber={-4.7}
+                yNumber={1.57}
+                fovNumber={30.0}
+                nearNumber={0.1}
+                farNumber={2000}
               />
               {view === 'BookCase' && <BookCase />}
             </Canvas>
