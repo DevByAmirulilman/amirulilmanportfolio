@@ -20,6 +20,7 @@ import { VscVscode } from "react-icons/vsc";
 import { TbBrandRedux } from "react-icons/tb";
 import { BsBadge3dFill } from "react-icons/bs";
 import { SiWebgl } from "react-icons/si";
+import NameAnimation from '../components/NameAnimation.jsx';
 
 const MainMenu = () => {
 
@@ -58,7 +59,7 @@ const MainMenu = () => {
         <Grid item xs={12} md={6}>
           <Box sx={{ textAlign: 'left', p: { xs: 1, sm: 2 }, color: '#E1D7B7' }}>
             <Typography variant="h1" sx={{ fontSize: { xs: 16, sm: 18 }, color:'#f7f1e8' }}>
-              Hi, I'm <span style={{ fontFamily: 'Protest Guerrilla' }}>Amirul Ilman</span>
+              <NameAnimation/>
             </Typography>
 
             <Typography
