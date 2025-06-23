@@ -21,19 +21,20 @@ import { TbBrandRedux } from "react-icons/tb";
 import { BsBadge3dFill } from "react-icons/bs";
 import { SiWebgl } from "react-icons/si";
 import NameAnimation from '../components/NameAnimation.jsx';
+import AnimatedTitle from '../components/AnimatedTitle.jsx';
 
 const MainMenu = () => {
 
   const [view, setView] = useState('MainMenu');
 
   return (
-    <Card sx={{ p: 2 }} style={{width:'80%',margin:'0 auto',backgroundColor:'#141e31', border:'1px solid #f7f1e8'}}>
+    <Card sx={{ p: 2 }} style={{ width: '80%', margin: '0 auto', backgroundColor: '#141e31' }}>
       <Grid container spacing={2} alignItems="center">
         {/* Canvas container */}
         <Grid item xs={12} md={6}>
-          <Box sx={{  height: 350 }}>
+          <Box sx={{ height: 350 }}>
             <Canvas
-            key={'wolfmodel'}
+              key={'wolfmodel'}
               camera={{
                 fov: 30.00,
                 near: 0.1,
@@ -54,30 +55,15 @@ const MainMenu = () => {
             </Canvas>
           </Box>
         </Grid>
-        
+
         {/* Typography content */}
         <Grid item xs={12} md={6}>
           <Box sx={{ textAlign: 'left', p: { xs: 1, sm: 2 }, color: '#E1D7B7' }}>
-            <Typography variant="h1" sx={{ fontSize: { xs: 16, sm: 18 }, color:'#f7f1e8' }}>
-              <NameAnimation/>
+            <Typography variant="h1" sx={{ fontSize: { xs: 16, sm: 18 }, color: '#f7f1e8' }}>
+              <NameAnimation />
             </Typography>
 
-            <Typography
-              variant="h3"
-              sx={{
-                fontFamily: 'Sofadi One',
-                mt: 1,
-                fontSize: { xs: 18, sm: 22 },
-                color:'#141e31',
-                backgroundColor:'#ebbf4d',
-                display: 'inline-block',
-                width: 'fit-content',
-                px: 1, // optional: some horizontal padding
-                borderRadius: 1 // optional: rounded corners
-              }}
-            >
-              Software Developer
-            </Typography>
+            <AnimatedTitle />
 
 
             <Typography
@@ -86,10 +72,10 @@ const MainMenu = () => {
                 fontFamily: 'Sofadi One',
                 mt: 1,
                 fontSize: { xs: 18, sm: 22 },
-                color:'#afd2e7'
+                color: '#afd2e7'
               }}
             >
-              I’m a <span style={{ fontFamily: 'Protest Guerrilla' }}>Software Developer</span> with a focus on creating exceptional digital experiences and interactive applications.
+              I’m a <span style={{ fontFamily: 'Protest Guerrilla' }}>Software Engineer</span> with a focus on creating exceptional digital experiences and interactive applications.
             </Typography>
 
             {/* Icons */}
@@ -103,21 +89,21 @@ const MainMenu = () => {
                 color: '#F4EBD0'
               }}
             >
-              <TbBrandThreejs color='#ede2d3'/>
-              <FaReact color='#7bdefd'/>
+              <TbBrandThreejs color='#ede2d3' />
+              <FaReact color='#7bdefd' />
               <FaNode />
-              <SiMongodb color='#538557'/>
-              <IoLogoJavascript color='#e8c050'/>
+              <SiMongodb color='#538557' />
+              <IoLogoJavascript color='#e8c050' />
               <FaJava />
-              <SiBlender color='#ff7021'/>
+              <SiBlender color='#ff7021' />
               <FaGithub />
-              <FaHtml5 color='#e44d26'/>
-              <FaCss3Alt color='#264de4'/>
-              <BiLogoPostgresql color='#417ba2'/>
-              <IoLogoAndroid color='#78c258'/>
-              <SiDbeaver color='#43322b'/>
-              <VscVscode color='#007bbc'/>
-              <TbBrandRedux color='#764abc'/>
+              <FaHtml5 color='#e44d26' />
+              <FaCss3Alt color='#264de4' />
+              <BiLogoPostgresql color='#417ba2' />
+              <IoLogoAndroid color='#78c258' />
+              <SiDbeaver color='#43322b' />
+              <VscVscode color='#007bbc' />
+              <TbBrandRedux color='#764abc' />
               <BsBadge3dFill />
               <SiWebgl />
             </Box>

@@ -7,14 +7,41 @@ import {
   ImageListItem,
   ImageListItemBar
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import OldMan from '../components/OldMan';
 import { allwork, myExp } from '../assets/allwork';
+import { animate, stagger } from 'animejs';
 
 const MyWork = () => {
   const [showing, setShowing] = useState({ name: 'MyWork', data: allwork });
+
+  useEffect(() => {
+    if (showing.name === 'MyExp') {
+      const cards = document.querySelectorAll('.exp-card');
+      animate(cards, {
+        opacity: [0, 1],
+        translateY: ['20px', '0px'],
+        scale: [0.95, 1],
+        delay: stagger(120),
+        duration: 800,
+        easing: 'easeOutBack',
+      });
+    }
+
+    if (showing.name === 'MyWork') {
+      const thumbnails = document.querySelectorAll('.work-card');
+      animate(thumbnails, {
+        opacity: [0, 1],
+        scale: [0.9, 1],
+        translateY: ['10px', '0px'],
+        delay: stagger(100),
+        duration: 600,
+        easing: 'easeOutQuart',
+      });
+    }
+  }, [showing]);
 
   const handleClick = (website) => {
     window.open(website, '_blank');
@@ -24,6 +51,7 @@ const MyWork = () => {
     if (Array.isArray(showing.data)) {
       return showing.data.map((skill) => (
         <ImageListItem
+          className="work-card"
           key={skill.title}
           onClick={() => handleClick(skill.website)}
           sx={{
@@ -33,6 +61,7 @@ const MyWork = () => {
               transform: 'scale(1.05)',
               boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
             },
+            opacity: 0,
           }}
         >
           <img
@@ -65,7 +94,6 @@ const MyWork = () => {
         maxWidth: '1200px',
         width: '95%',
         backgroundColor: '#141e31',
-        border: '1px solid #f7f1e8',
       }}
     >
       <Typography
@@ -95,7 +123,7 @@ const MyWork = () => {
         </Canvas>
       </Box>
 
-      <Box sx={{ textAlign: 'center', p: 2 }}>
+      <Box sx={{ textAlign: 'center', p: 2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2 }}>
         <Button
           onClick={() => setShowing({ name: 'MyWork', data: allwork })}
           sx={{
@@ -103,7 +131,6 @@ const MyWork = () => {
             backgroundColor: showing.name === 'MyWork' ? '#E1D7B7' : 'transparent',
             color: showing.name === 'MyWork' ? '#141e31' : '#E1D7B7',
             border: '1px solid #E1D7B7',
-            mx: 1,
             '&:hover': {
               backgroundColor: '#E1D7B7',
               color: '#141e31',
@@ -121,7 +148,6 @@ const MyWork = () => {
             backgroundColor: showing.name === 'MyExp' ? '#E1D7B7' : 'transparent',
             color: showing.name === 'MyExp' ? '#141e31' : '#E1D7B7',
             border: '1px solid #E1D7B7',
-            mx: 1,
             '&:hover': {
               backgroundColor: '#E1D7B7',
               color: '#141e31',
@@ -146,11 +172,13 @@ const MyWork = () => {
           {showing.data.map((resp, idx) => (
             <Grid item xs={12} sm={6} md={6} key={idx}>
               <Card
+                className="exp-card"
                 sx={{
                   p: 2,
                   color: 'white',
                   backgroundColor: '#141e31',
                   border: '1px solid #f7f1e8',
+                  opacity: 0,
                 }}
               >
                 <Typography>
