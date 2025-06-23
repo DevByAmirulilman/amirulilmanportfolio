@@ -80,7 +80,7 @@ const About = () => {
   
 
   return (
-    <Card sx={{ p: 2 }} style={{width:'80%',margin:'0 auto',backgroundColor:'#141e31', border:'1px solid #f7f1e8'}}>
+    <Card sx={{ p: 2 }} style={{width:'80%',margin:'0 auto',backgroundColor:'#141e31'}}>
       <Grid container spacing={4} direction={{ xs: 'column', md: 'row' }} alignItems="flex-start">
         {/* About Me Section */}
         <Grid item xs={12} md={6}>
