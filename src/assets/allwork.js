@@ -9,9 +9,20 @@ import ThreeJsHauntedHouse from './images/threejs-hauntedhouse.png';
 import ThreeJsRealistic from './images/threejs-realistic.png';
 import ThreeJsParticles from './images/threejs-particles.png';
 import ThreeJsGalaxy from './images/threejs-galaxy.png';
+import Sujood from './images/sujood.jpg'
 
 // Array of works
 export const allwork = [
+    {
+    title: 'Sujood',
+    image: Sujood,
+    description: "Sujood app",
+    category: 'React Native',
+    github: 'https://sujood.net/',
+    website: 'https://sujood.net/',
+    hosting: "Play Store & App Store",
+    software: 'Figma'
+  },
   {
     title: 'LoosenUp',
     image: ReactMusic,
@@ -28,7 +39,7 @@ export const allwork = [
     description: "React game app using the games API",
     category: 'React',
     github: 'https://github.com/DevByAmirulilman/React-Game-Website',
-    website: 'https://devbyamirulilman.github.io/React-Game-Website/',
+    website: 'https://devbyamirulilman.github.io/game-website',
     hosting: "GitHub Pages",
     software: 'Figma'
   },
