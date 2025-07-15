@@ -5,7 +5,7 @@ import {
   Button,
   Grid,
   ImageListItem,
-  ImageListItemBar
+  ImageListItemBar,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
@@ -13,6 +13,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 import OldMan from '../components/OldMan';
 import { allwork, myExp } from '../assets/allwork';
 import { animate, stagger } from 'animejs';
+import GithubComponent from '../components/GithubComponent';
 
 const MyWork = () => {
   const [showing, setShowing] = useState({ name: 'MyWork', data: allwork });
@@ -56,32 +57,46 @@ const MyWork = () => {
           onClick={() => handleClick(skill.website)}
           sx={{
             cursor: 'pointer',
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden',
+            borderRadius: 2,
             transition: 'transform 0.2s, box-shadow 0.2s',
             '&:hover': {
               transform: 'scale(1.05)',
               boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
             },
-            opacity: 0,
           }}
         >
-          <img
-            srcSet={`${skill.image}?w=1008&fit=crop&auto=format&dpr=2`}
-            src={`${skill.image}?w=100&fit=crop&auto=format`}
-            alt={skill.title}
-            loading="lazy"
-            style={{ borderRadius: '8px', width: '100%' }}
-          />
-          <ImageListItemBar
-            title={skill.title}
-            subtitle={skill.description}
-            sx={{
-              background:
-                'linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3))',
-            }}
-          />
+          <Box sx={{ width: '100%', height: 200, position: 'relative' }}>
+            <img
+              srcSet={`${skill.image}?w=300&h=200&fit=crop&auto=format&dpr=2`}
+              src={`${skill.image}?w=300&h=200&fit=crop&auto=format`}
+              alt={skill.title}
+              loading="lazy"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '8px',
+                display: 'block',
+              }}
+            />
+            <ImageListItemBar
+              title={skill.title}
+              subtitle={skill.description}
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3))',
+              }}
+            />
+          </Box>
         </ImageListItem>
       ));
     }
+
     return [<Typography key="no-data">No projects available</Typography>];
   };
 
@@ -108,22 +123,24 @@ const MyWork = () => {
         My Work & Experiences
       </Typography>
 
-      <Box sx={{ width: '100%', height: { xs: 200, sm: 300, md: 400 }, p: 2 }}>
-        <Canvas
-          camera={{
-            fov: 30.0,
-            near: 0.1,
-            far: 2000,
-            position: [-4.7, 1.57, 1.8],
-          }}
-          style={{ width: '100%', height: '100%' }}
-        >
-          <PerspectiveCamera fov={30.0} near={0.1} far={2000} />
-          <OldMan showing={showing} />
-        </Canvas>
+
+
+      {/* GitHub Contribution Calendar */}\
+      <Box >
+        <GithubComponent />
       </Box>
 
-      <Box sx={{ textAlign: 'center', p: 2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2 }}>
+      {/* Work/Experience Toggle Buttons */}
+      <Box
+        sx={{
+          textAlign: 'center',
+          p: 2,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: 2,
+        }}
+      >
         <Button
           onClick={() => setShowing({ name: 'MyWork', data: allwork })}
           sx={{
@@ -131,6 +148,9 @@ const MyWork = () => {
             backgroundColor: showing.name === 'MyWork' ? '#E1D7B7' : 'transparent',
             color: showing.name === 'MyWork' ? '#141e31' : '#E1D7B7',
             border: '1px solid #E1D7B7',
+            textTransform: 'none',
+            minWidth: 180,
+            minHeight: 48,
             '&:hover': {
               backgroundColor: '#E1D7B7',
               color: '#141e31',
@@ -138,7 +158,7 @@ const MyWork = () => {
           }}
           variant="outlined"
         >
-          My Work
+          My Personal Work
         </Button>
 
         <Button
@@ -148,6 +168,9 @@ const MyWork = () => {
             backgroundColor: showing.name === 'MyExp' ? '#E1D7B7' : 'transparent',
             color: showing.name === 'MyExp' ? '#141e31' : '#E1D7B7',
             border: '1px solid #E1D7B7',
+            textTransform: 'none',
+            minWidth: 180,
+            minHeight: 48,
             '&:hover': {
               backgroundColor: '#E1D7B7',
               color: '#141e31',
@@ -159,10 +182,11 @@ const MyWork = () => {
         </Button>
       </Box>
 
+      {/* Content Grid */}
       {showing.name === 'MyWork' ? (
         <Grid container spacing={2} sx={{ px: 2 }}>
           {renderAllWork().map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ height: 250 }}>
               {item}
             </Grid>
           ))}
@@ -181,29 +205,29 @@ const MyWork = () => {
                   opacity: 0,
                 }}
               >
-                <Typography>
-                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One' }}>
+                <Typography sx={{ mb: 1 }}>
+                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One', fontWeight: 600 }}>
                     Role:{' '}
                   </span>
                   {resp.role}
                 </Typography>
-                <Typography>
-                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One' }}>
+                <Typography sx={{ mb: 1 }}>
+                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One', fontWeight: 600 }}>
                     Company:{' '}
                   </span>
                   {resp.company}
                 </Typography>
-                <Typography>
-                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One' }}>
+                <Typography sx={{ mb: 1 }}>
+                  <span style={{ color: '#E1D7B7', fontFamily: 'Sofadi One', fontWeight: 600 }}>
                     Tech Stack Used:{' '}
                   </span>
                   {resp.stack}
                 </Typography>
-                <ul>
+                <Box component="ul" sx={{ pl: 3, mt: 1 }}>
                   {resp.work.map((res, i) => (
                     <li key={i}>{res}</li>
                   ))}
-                </ul>
+                </Box>
               </Card>
             </Grid>
           ))}
