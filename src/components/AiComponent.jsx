@@ -17,30 +17,19 @@ const AiComponent = () => {
   const containerRef = useRef(null);
   const responseRef = useRef(null);
 
-  const getChatGPTResponse = async (message) => {
-    try {
-      setLoading(true);
-      const res = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: message }],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      return res.data.choices[0].message.content;
-    } catch (err) {
-      console.error('OpenAI API error:', err);
-      return 'Something went wrong.';
-    } finally {
-      setLoading(false);
-    }
-  };
+const getChatGPTResponse = async (message) => {
+  try {
+    const response = await axios.post('/api/ask', {
+      messages: [{ role: 'user', content: message }],
+    });
+
+    return response.data.choices[0].message.content;
+  } catch (error) {
+    console.error('Serverless API error:', error);
+    return 'Something went wrong.';
+  }
+};
+
 
   const handleSubmit = async () => {
     const reply = await getChatGPTResponse(input);
