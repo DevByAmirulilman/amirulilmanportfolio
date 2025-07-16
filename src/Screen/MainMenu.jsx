@@ -22,6 +22,7 @@ import { BsBadge3dFill } from "react-icons/bs";
 import { SiWebgl } from "react-icons/si";
 import NameAnimation from '../components/NameAnimation.jsx';
 import AnimatedTitle from '../components/AnimatedTitle.jsx';
+import AiComponent from '../components/AiComponent.jsx';
 
 const MainMenu = () => {
 
@@ -109,6 +110,11 @@ const MainMenu = () => {
             </Box>
           </Box>
         </Grid>
+
+        <Grid item xs={12} md={6}>
+          <AiComponent/>
+        </Grid>
+
       </Grid>
     </Card>
   );
