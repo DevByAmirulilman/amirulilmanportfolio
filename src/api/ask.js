@@ -1,10 +1,10 @@
 export default async function handler(req, res) {
-  // ✅ CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // ✅ CORS headers — Always add these first
+  res.setHeader('Access-Control-Allow-Origin', '*'); // or restrict to GitHub domain
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // ✅ Handle preflight
+  // ✅ Handle preflight request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: 'gpt-3.5-turbo',
-        messages: messages,
+        messages,
       }),
     });
 
