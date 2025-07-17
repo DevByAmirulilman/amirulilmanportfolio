@@ -19,7 +19,7 @@ const AiComponent = () => {
 
 const getChatGPTResponse = async (message) => {
   try {
-    const response = await axios.post('/api/ask', {
+    const response = await axios.post('https://amirulilmanportfolio-k40e8nwa6-ilman1amirulgmailcoms-projects.vercel.app/api/ask', {
       messages: [{ role: 'user', content: message }],
     });
 
