@@ -14,13 +14,15 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: 'gpt-3.5-turbo',
-        messages: messages,
+        messages,
       }),
     });
 
     const data = await response.json();
+
     res.status(200).json({ result: data.choices[0].message.content });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'OpenAI API failed' });
   }
 }
