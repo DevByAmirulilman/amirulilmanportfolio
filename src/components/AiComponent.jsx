@@ -22,8 +22,9 @@ const getChatGPTResponse = async (message) => {
     const response = await axios.post('https://open-ai-who5.vercel.app/api/ask', {
       messages: [{ role: 'user', content: message }],
     });
-
-    return response.data.choices[0].message.content;
+console.log(response.data.result)
+    return response.data.result
+    
   } catch (error) {
     console.error('Serverless API error:', error);
     return 'Something went wrong.';
