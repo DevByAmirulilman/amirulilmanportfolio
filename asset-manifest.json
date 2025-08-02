@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/amirulilmanportfolio/static/css/main.cca7e230.css",
-    "main.js": "/amirulilmanportfolio/static/js/main.0fcd6dbe.js",
+    "main.js": "/amirulilmanportfolio/static/js/main.483fe556.js",
     "static/media/threejs-fyp.png": "/amirulilmanportfolio/static/media/threejs-fyp.025a02f210434eed94fa.png",
     "static/media/threejs-realistic.png": "/amirulilmanportfolio/static/media/threejs-realistic.27ca6fd43b33acd478a7.png",
     "static/media/game-react.png": "/amirulilmanportfolio/static/media/game-react.7a695cad2174344b61f3.png",
@@ -9,7 +9,6 @@
     "static/media/cv.pdf": "/amirulilmanportfolio/static/media/cv.361c384036b812409810.pdf",
     "static/media/sujood.jpg": "/amirulilmanportfolio/static/media/sujood.4909bfca1caf04c70088.jpg",
     "static/media/threejs-particles.png": "/amirulilmanportfolio/static/media/threejs-particles.6ea97cb28044fcf60e05.png",
-    "static/media/index.cjs": "/amirulilmanportfolio/static/media/index.a02930182e698c6507fb.cjs",
     "static/media/portfolio-react.png": "/amirulilmanportfolio/static/media/portfolio-react.d2b2510cc7f982e69c60.png",
     "static/media/threejs-galaxy.png": "/amirulilmanportfolio/static/media/threejs-galaxy.09615a752fa6680687c5.png",
     "static/media/alifbata-react.png": "/amirulilmanportfolio/static/media/alifbata-react.5c7e2e750f88904fd757.png",
@@ -17,10 +16,10 @@
     "static/media/todo-react.png": "/amirulilmanportfolio/static/media/todo-react.892bc24a1a68f94d27a0.png",
     "index.html": "/amirulilmanportfolio/index.html",
     "main.cca7e230.css.map": "/amirulilmanportfolio/static/css/main.cca7e230.css.map",
-    "main.0fcd6dbe.js.map": "/amirulilmanportfolio/static/js/main.0fcd6dbe.js.map"
+    "main.483fe556.js.map": "/amirulilmanportfolio/static/js/main.483fe556.js.map"
   },
   "entrypoints": [
     "static/css/main.cca7e230.css",
-    "static/js/main.0fcd6dbe.js"
+    "static/js/main.483fe556.js"
   ]
 }
