@@ -40,13 +40,13 @@ const ContactMe = () => {
       </Typography>
 
       <Grid container spacing={4} alignItems="center" justifyContent="center">
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <Box sx={{ width: '100%', height: { xs: 300, sm: 400, md: 450 } }}>
             <Canvas className="r3f">
               <Iphone />
             </Canvas>
           </Box>
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12} md={6}>
           <Box sx={{ px: { xs: 1, sm: 2 }, textAlign: { xs: 'center', md: 'left' } }}>

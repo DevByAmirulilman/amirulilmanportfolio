@@ -28,34 +28,35 @@ const MainMenu = () => {
 
   const [view, setView] = useState('MainMenu');
 
+        //   {/* Canvas container */}
+        // <Grid item xs={12} md={6}>
+        //   <Box sx={{ height: 350 }}>
+        //     <Canvas
+        //       key={'wolfmodel'}
+        //       camera={{
+        //         fov: 30.00,
+        //         near: 0.1,
+        //         far: 2000,
+        //         position: [-4.7, 1.57, 1.8,], // Initial camera position
+        //       }}
+        //     >
+        //       {/* Controller to update camera dynamically */}
+        //       <PerspectiveCamera
+        //         zNumber={1.8}
+        //         xNumber={-4.7}
+        //         yNumber={1.57}
+        //         fovNumber={30.00}
+        //         nearNumber={0.1}
+        //         farNumber={2000}
+        //       />
+        //       {view === 'MainMenu' ? <Experience /> : <></>}
+        //     </Canvas>
+        //   </Box>
+        // </Grid>
   return (
     <Card sx={{ p: 2 }} style={{ width: '80%', margin: '0 auto', backgroundColor: '#141e31' }}>
       <Grid container spacing={2} alignItems="center">
-        {/* Canvas container */}
-        <Grid item xs={12} md={6}>
-          <Box sx={{ height: 350 }}>
-            <Canvas
-              key={'wolfmodel'}
-              camera={{
-                fov: 30.00,
-                near: 0.1,
-                far: 2000,
-                position: [-4.7, 1.57, 1.8,], // Initial camera position
-              }}
-            >
-              {/* Controller to update camera dynamically */}
-              <PerspectiveCamera
-                zNumber={1.8}
-                xNumber={-4.7}
-                yNumber={1.57}
-                fovNumber={30.00}
-                nearNumber={0.1}
-                farNumber={2000}
-              />
-              {view === 'MainMenu' ? <Experience /> : <></>}
-            </Canvas>
-          </Box>
-        </Grid>
+
 
         {/* Typography content */}
         <Grid item xs={12} md={6}>
@@ -111,9 +112,9 @@ const MainMenu = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <AiComponent/>
-        </Grid>
+        </Grid> */}
 
       </Grid>
     </Card>

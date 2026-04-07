@@ -150,7 +150,7 @@ const About = () => {
         </Grid>
 
         {/* 3D Canvas */}
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <Box sx={{ width: '100%', height: { xs: 250, sm: 300, md: 400 } }}>
             <Canvas
               camera={{
@@ -171,7 +171,7 @@ const About = () => {
               {view === 'BookCase' && <BookCase />}
             </Canvas>
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Card>
   );
