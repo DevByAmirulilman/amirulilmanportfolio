@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
-  Typography, Box, Grid, ListItemIcon, ListItemText,
-  ListItem, Button
+  Typography, Box, Grid
 } from '@mui/material';
 import BookCase from '../components/BookCase.jsx';
 import { educations, backend, frontend, tools } from '../assets/skills.js';

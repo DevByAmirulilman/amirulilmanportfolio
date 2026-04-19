@@ -3,7 +3,6 @@ import MainMenu from './Screen/MainMenu'
 import Nav from './components/Nav'
 import { Route, Routes } from 'react-router-dom'
 import About from './Screen/About'
-import Iphone from './components/Iphone'
 import MyWork from './Screen/MyWork'
 import ContactMe from './Screen/ContactMe'
 
