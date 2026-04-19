@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
 import { Environment, OrbitControls, PresentationControls, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
 
 const BookCase = () => {
   const bookCaseModel = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/bookcase-wide/model.gltf');

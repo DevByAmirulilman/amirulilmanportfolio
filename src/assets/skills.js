@@ -1,8 +1,7 @@
 import { FaAngular, FaCss3Alt, FaHtml5, FaJava, FaNodeJs, FaReact, FaGithub } from "react-icons/fa"
-import { FaJs } from "react-icons/fa6"
 import { SiAxios, SiDotnet, SiExpress, SiMongodb, SiPostgresql, SiStyledcomponents, SiMui, SiBlender, SiWebgl, SiFirebase, SiNextdotjs, SiDbeaver, SiMysql } from "react-icons/si"
 import { TbBrandFramerMotion, TbBrandRedux, TbBrandThreejs } from "react-icons/tb"
-import { IoLogoJavascript, IoLogoAndroid, IoLogoFirebase } from "react-icons/io5"
+import { IoLogoJavascript, IoLogoAndroid } from "react-icons/io5"
 import { VscVscode } from "react-icons/vsc"
 import { BsBadge3dFill } from "react-icons/bs"
 
