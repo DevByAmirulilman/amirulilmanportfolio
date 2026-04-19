@@ -2,7 +2,7 @@
   "name": "myportfolio",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://DevByAmirulilman.github.io/amirulilmanportfolio/",
+"homepage": "/",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
