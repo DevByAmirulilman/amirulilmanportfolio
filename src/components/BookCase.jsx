@@ -1,4 +1,4 @@
-import { Environment, OrbitControls, PresentationControls, useGLTF } from '@react-three/drei';
+import { Environment, PresentationControls, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 const BookCase = () => {
