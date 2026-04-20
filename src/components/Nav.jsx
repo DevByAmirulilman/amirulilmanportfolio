@@ -83,7 +83,7 @@ const navStyles = `
 `;
 
 const navLinks = [
-  { label: 'Home',       to: '/amirulilmanportfolio' },
+  { label: 'Home',       to: '/' },
   { label: 'About',      to: '/About' },
   { label: 'My Work',    to: '/Mywork' },
   { label: 'Contact Me', to: '/ContactMe' },
