@@ -18,7 +18,7 @@ export const allwork = [
     title: 'DigitalQ',
     image: digitalQ,
     description: "DigitalQ lets your customers join the queue from their phone and get notified when it's their turn. Less waiting. More cutting.",
-    category: 'React Native',
+    category: 'React And Firebase',
     github: 'https://digitalq.my/',
     website: 'https://digitalq.my/',
     hosting: "Vercel",
