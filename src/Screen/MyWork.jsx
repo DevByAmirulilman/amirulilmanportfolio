@@ -215,7 +215,7 @@ const MyWork = () => {
       </Box>
 
       {/* ── GITHUB ── */}
-      <Box sx={{ mb: 7, position: 'relative', zIndex: 1, ...fadeStyle(0.18) }}>
+      <Box sx={{ mb: 7, position: 'relative', zIndex: 1, ...fadeStyle(0.18), backgroundColor:'#999999', borderRadius:'10%' }}>
         <GithubComponent />
       </Box>
 

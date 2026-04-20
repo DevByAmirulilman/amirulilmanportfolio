@@ -10,9 +10,20 @@ import ThreeJsRealistic from './images/threejs-realistic.png';
 import ThreeJsParticles from './images/threejs-particles.png';
 import ThreeJsGalaxy from './images/threejs-galaxy.png';
 import Sujood from './images/sujood.jpg'
+import digitalQ from './images/digitalQ.png'
 
 // Array of works
 export const allwork = [
+      {
+    title: 'DigitalQ',
+    image: digitalQ,
+    description: "DigitalQ lets your customers join the queue from their phone and get notified when it's their turn. Less waiting. More cutting.",
+    category: 'React Native',
+    github: 'https://digitalq.my/',
+    website: 'https://digitalq.my/',
+    hosting: "Vercel",
+    software: 'Figma'
+  },
     {
     title: 'Sujood',
     image: Sujood,
